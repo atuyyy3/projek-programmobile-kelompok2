@@ -123,4 +123,17 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.close()
         return ticketList
     }
+
+    fun getTicketCountByStatus(status: String): Int {
+        val db = this.readableDatabase
+        val query = "SELECT count(*) FROM $TABLE_TICKET WHERE $COLUMN_TICKET_STATUS = ?"
+        val cursor = db.rawQuery(query, arrayOf(status))
+        var count = 0
+        if (cursor.moveToFirst()) {
+            count = cursor.getInt(0)
+        }
+        cursor.close()
+        db.close()
+        return count
+    }
 }
