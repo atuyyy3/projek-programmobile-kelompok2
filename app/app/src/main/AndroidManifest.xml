@@ -25,6 +25,9 @@
             android:exported="false" />
         <activity android:name=".TicketListActivity" android:exported="false" />
         <activity android:name=".RegisterActivity" android:exported="false" />
+        <activity android:name=".AnalyticsActivity" android:exported="false" />
+        <activity android:name=".CreateTicketActivity" android:exported="false" />
+        <activity android:name=".EditTicketActivity" android:exported="false" />
     </application>
 
 </manifest>

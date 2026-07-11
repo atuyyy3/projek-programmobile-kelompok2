@@ -18,9 +18,15 @@ class MainActivity : AppCompatActivity() {
         dbHelper = DatabaseHelper(this)
 
         val btnGoToTicketList = findViewById<Button>(R.id.btnGoToCreateTicket)
+        val btnAnalytics = findViewById<Button>(R.id.btnViewAnalytics)
+
         btnGoToTicketList.setOnClickListener {
             startActivity(Intent(this, TicketListActivity::class.java))
         }
+        btnAnalytics.setOnClickListener {
+            startActivity(Intent(this, AnalyticsActivity::class.java))
+        }
+
     }
 
     override fun onResume() {

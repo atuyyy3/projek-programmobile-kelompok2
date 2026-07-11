@@ -194,5 +194,19 @@
             app:cornerRadius="12dp"
             android:layout_marginBottom="24dp"/>
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnViewAnalytics"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="LIHAT LEADERBOARD"
+            android:textColor="#0088FF"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:backgroundTint="#FFFFFF"
+            app:strokeColor="#0088FF"
+            app:strokeWidth="2dp"
+            app:cornerRadius="12dp"
+            android:layout_marginBottom="24dp"/>
+
     </LinearLayout>
 </ScrollView>
