@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="3dp"
+    app:cardBackgroundColor="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Judul Tiket (Biru Gelap) -->
+            <TextView
+                android:id="@+id/tvTicketTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Judul Tiket"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#0055B3"/>
+
+            <!-- Status Badge -->
+            <TextView
+                android:id="@+id/tvTicketStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OPEN"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#0088FF"
+                android:background="@drawable/background_badge"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp"/>
+        </LinearLayout>
+
+        <!-- Deskripsi Singkat -->
+        <TextView
+            android:id="@+id/tvTicketDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Deskripsi singkat mengenai tiket ini akan muncul di sini."
+            android:textSize="14sp"
+            android:textColor="#5A9BD5"
+            android:layout_marginTop="8dp"
+            android:maxLines="2"
+            android:ellipsize="end"/>
+
+        <!-- Prioritas (Biru Cerah) -->
+        <TextView
+            android:id="@+id/tvTicketPriority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Priority: High"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#0088FF"
+            android:layout_marginTop="12dp"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
