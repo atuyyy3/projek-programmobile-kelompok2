@@ -136,4 +136,25 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.close()
         return count
     }
+
+    fun updateTicket(id: String, title: String, desc: String, priority: String, status: String, assigneeId: String): Int {
+        val db = this.writableDatabase
+        val values = ContentValues().apply {
+            put(COLUMN_TICKET_TITLE, title)
+            put(COLUMN_TICKET_DESC, desc)
+            put(COLUMN_TICKET_PRIORITY, priority)
+            put(COLUMN_TICKET_STATUS, status)
+            put(COLUMN_TICKET_ASSIGNEE, assigneeId)
+        }
+        val result = db.update(TABLE_TICKET, values, "$COLUMN_TICKET_ID = ?", arrayOf(id))
+        db.close()
+        return result
+    }
+
+    fun deleteTicket(id: String): Int {
+        val db = this.writableDatabase
+        val result = db.delete(TABLE_TICKET, "$COLUMN_TICKET_ID = ?", arrayOf(id))
+        db.close()
+        return result
+    }
 }

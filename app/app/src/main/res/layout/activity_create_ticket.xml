@@ -83,4 +83,16 @@
         android:textColor="#FFFFFF"
         android:textStyle="bold"/>
 
+    <!-- Tombol Hapus -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnDeleteTicket"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="HAPUS TIKET"
+        app:backgroundTint="#FF4444"
+        app:cornerRadius="12dp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"/>
+
 </LinearLayout>

@@ -8,8 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.ticketing.R
 import com.example.ticketing.model.Ticket
 
-class TicketAdapter(private var ticketList: List<Ticket>) :
-    RecyclerView.Adapter<TicketAdapter.TicketViewHolder>() {
+class TicketAdapter(
+    private var ticketList: List<Ticket>,
+    private val onClick: (Ticket) -> Unit
+) : RecyclerView.Adapter<TicketAdapter.TicketViewHolder>() {
 
     class TicketViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvTitle: TextView = itemView.findViewById(R.id.tvTicketTitle)
@@ -37,6 +39,8 @@ class TicketAdapter(private var ticketList: List<Ticket>) :
             "IN PROGRESS" -> holder.tvStatus.setTextColor(android.graphics.Color.parseColor("#0088FF"))
             "CLOSED" -> holder.tvStatus.setTextColor(android.graphics.Color.parseColor("#4CAF50"))
         }
+
+        holder.itemView.setOnClickListener { onClick(ticket) }
     }
 
     override fun getItemCount(): Int {

@@ -30,7 +30,11 @@ class TicketListActivity : AppCompatActivity() {
 
         // Setup RecyclerView
         rvTickets.layoutManager = LinearLayoutManager(this)
-        ticketAdapter = TicketAdapter(emptyList()) // Mulai dengan list kosong
+        ticketAdapter = TicketAdapter(emptyList()) { selectedTicket ->
+            val intent = Intent(this, EditTicketActivity::class.java)
+            intent.putExtra("TICKET_ID", selectedTicket.id)
+            startActivity(intent)
+        } // Mulai dengan list kosong
         rvTickets.adapter = ticketAdapter
 
         // Tombol (+) diarahkan ke Halaman Buat Tiket

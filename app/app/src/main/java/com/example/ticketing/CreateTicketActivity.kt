@@ -1,6 +1,7 @@
 package com.example.ticketing
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ticketing.data.DatabaseHelper
@@ -24,6 +25,10 @@ class CreateTicketActivity : AppCompatActivity() {
         val etPriority = findViewById<TextInputEditText>(R.id.etPriority)
         val etAssignee = findViewById<TextInputEditText>(R.id.etAssignee)
         val btnSaveTicket = findViewById<MaterialButton>(R.id.btnSaveTicket)
+
+        // Di dalam CreateTicketActivity.kt
+        val btnDelete = findViewById<MaterialButton>(R.id.btnDeleteTicket)
+        btnDelete.visibility = View.GONE // Sembunyikan tombol hapus saat buat tiket baru
 
         btnSaveTicket.setOnClickListener {
             val title = etTitle.text.toString().trim()
