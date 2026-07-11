@@ -55,12 +55,31 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
         db?.execSQL(createUserTable)
         db?.execSQL(createTicketTable)
+
+        seedData(db)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         db?.execSQL("DROP TABLE IF EXISTS $TABLE_TICKET")
         db?.execSQL("DROP TABLE IF EXISTS $TABLE_USER")
         onCreate(db)
+    }
+
+    private fun seedData(db: SQLiteDatabase?) {
+        // 1. Seed User Admin (Wajib ada agar Foreign Key assignee tidak error)
+        db?.execSQL("INSERT OR IGNORE INTO $TABLE_USER VALUES ('u1', 'Admin Utama', 'admin@admin.com', 'Admin', 'admin123')")
+
+        // 2. Seed 10 Data Tiket
+        db?.execSQL("INSERT INTO $TABLE_TICKET VALUES ('t1', 'Fix Login Bug', 'Memperbaiki validasi password', 'High', 'Open', 'u1')")
+        db?.execSQL("INSERT INTO $TABLE_TICKET VALUES ('t2', 'Update UI Dashboard', 'Memperbaiki spasi pada kartu', 'Medium', 'InProgress', 'u1')")
+        db?.execSQL("INSERT INTO $TABLE_TICKET VALUES ('t3', 'Setup Database', 'Inisialisasi tabel awal', 'Critical', 'Closed', 'u1')")
+        db?.execSQL("INSERT INTO $TABLE_TICKET VALUES ('t4', 'Add Register Screen', 'Menambahkan logika pendaftaran user', 'High', 'Open', 'u1')")
+        db?.execSQL("INSERT INTO $TABLE_TICKET VALUES ('t5', 'Optimize Query', 'Meningkatkan kecepatan load data', 'Medium', 'Open', 'u1')")
+        db?.execSQL("INSERT INTO $TABLE_TICKET VALUES ('t6', 'Fix Leaderboard Font', 'Memperbaiki masalah perataan teks', 'Low', 'Closed', 'u1')")
+        db?.execSQL("INSERT INTO $TABLE_TICKET VALUES ('t7', 'Implement Logout', 'Membersihkan session token', 'Medium', 'InProgress', 'u1')")
+        db?.execSQL("INSERT INTO $TABLE_TICKET VALUES ('t8', 'Update Footer', 'Mengubah tahun hak cipta', 'Low', 'Closed', 'u1')")
+        db?.execSQL("INSERT INTO $TABLE_TICKET VALUES ('t9', 'Refactor API Client', 'Memindahkan logika ke singleton', 'High', 'Review', 'u1')")
+        db?.execSQL("INSERT INTO $TABLE_TICKET VALUES ('t10', 'Fix Crash on Search', 'Menambahkan pengecekan null pointer', 'Critical', 'Open', 'u1')")
     }
 
     // --- FUNGSI UNTUK USER (REGISTER & LOGIN) ---
