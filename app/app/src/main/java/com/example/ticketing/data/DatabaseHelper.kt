@@ -180,8 +180,8 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     fun getLeaderboardData(): List<Pair<String, Int>> {
         val list = mutableListOf<Pair<String, Int>>()
         val db = this.readableDatabase
-        // Menghitung jumlah tiket status CLOSED per assignee
-        val query = "SELECT $COLUMN_TICKET_ASSIGNEE, COUNT(*) as total FROM $TABLE_TICKET WHERE $COLUMN_TICKET_STATUS = 'CLOSED' GROUP BY $COLUMN_TICKET_ASSIGNEE ORDER BY total DESC"
+        // Ubah 'CLOSED' menjadi 'Closed' sesuai dengan data yang Anda masukkan di seeder
+        val query = "SELECT $COLUMN_TICKET_ASSIGNEE, COUNT(*) as total FROM $TABLE_TICKET WHERE $COLUMN_TICKET_STATUS = 'Closed' GROUP BY $COLUMN_TICKET_ASSIGNEE ORDER BY total DESC"
         val cursor = db.rawQuery(query, null)
 
         if (cursor.moveToFirst()) {

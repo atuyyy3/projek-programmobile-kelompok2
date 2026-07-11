@@ -1,9 +1,14 @@
 package com.example.ticketing
 
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.ListView
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.ticketing.adapter.LeaderboardAdapter
 import com.example.ticketing.data.DatabaseHelper
 
 class AnalyticsActivity : AppCompatActivity() {
@@ -14,12 +19,9 @@ class AnalyticsActivity : AppCompatActivity() {
 
         val dbHelper = DatabaseHelper(this)
         val leaderboardList = dbHelper.getLeaderboardData()
+        val recyclerView = findViewById<RecyclerView>(R.id.rvLeaderboard)
 
-        // Konversi data ke format string untuk ditampilkan di ListView sederhana
-        val displayData = leaderboardList.map { "User: ${it.first} | Selesai: ${it.second}" }
-
-        val listView = findViewById<ListView>(R.id.rvLeaderboard) // Gunakan ListView untuk kemudahan
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, displayData)
-        listView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = LeaderboardAdapter(leaderboardList)
     }
 }

@@ -43,7 +43,7 @@ class CreateTicketActivity : AppCompatActivity() {
 
             // Simpan ke SQLite
             val ticketId = UUID.randomUUID().toString()
-            val status = "OPEN"
+            val status = "Open"
             val result = dbHelper.insertTicket(ticketId, title, desc, priority, status, assignee)
 
             if (result != -1L) {

@@ -39,12 +39,11 @@ class MainActivity : AppCompatActivity() {
         val tvProg = findViewById<TextView>(R.id.tvProgCount)
         val tvClosed = findViewById<TextView>(R.id.tvClosedCount)
 
-        // Ambil data dari SQLite
-        val openCount = dbHelper.getTicketCountByStatus("OPEN")
-        val progCount = dbHelper.getTicketCountByStatus("IN PROGRESS")
-        val closedCount = dbHelper.getTicketCountByStatus("CLOSED")
+        // Ubah status agar sesuai dengan string yang ada di Database (Seeder)
+        val openCount = dbHelper.getTicketCountByStatus("Open")
+        val progCount = dbHelper.getTicketCountByStatus("InProgress")
+        val closedCount = dbHelper.getTicketCountByStatus("Closed")
 
-        // Update UI
         tvOpen.text = openCount.toString()
         tvProg.text = progCount.toString()
         tvClosed.text = closedCount.toString()
