@@ -35,7 +35,7 @@ class TicketListActivity : AppCompatActivity() {
 
         // Tombol (+) diarahkan ke Halaman Buat Tiket
         fabAddTicket.setOnClickListener {
-//            val intent = Intent(this, CreateTicketActivity::class.java)
+            val intent = Intent(this, CreateTicketActivity::class.java)
             startActivity(intent)
         }
     }
