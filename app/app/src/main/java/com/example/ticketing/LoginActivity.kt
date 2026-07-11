@@ -40,6 +40,13 @@ class LoginActivity : AppCompatActivity() {
             // 2. CEK LANGSUNG KE SQLITE
             if (dbHelper.checkUser(email, password)) {
                 Toast.makeText(this, "Login Berhasil!", Toast.LENGTH_SHORT).show()
+
+                val sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.putBoolean("isLoggedIn", true)
+                editor.putString("userEmail", email) // Opsional: Simpan email user
+                editor.apply()
+
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 finish()
