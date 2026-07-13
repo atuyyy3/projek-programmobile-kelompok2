@@ -3,13 +3,13 @@
 Sebuah aplikasi berbasis Android Native yang dikembangkan untuk memenuhi tugas mata kuliah Pemrograman Mobile 1 di Universitas Teknologi Bandung (UTB). Aplikasi ini dirancang untuk mengelola tiket bantuan/laporan teknis secara efisien, mulai dari proses pembuatan tiket, pelacakan status, hingga analitik kinerja anggota tim melalui fitur leaderboard.
 ---
 
-## 👥 Tim Pengembang (Kelompok 4)
+## 👥 Tim Pengembang (Kelompok 2)
 
 | Nama Lengkap | NPM | Peran dalam Proyek |
 | :--- | :--- | :--- |
-| [nama] | [nim] | [role] |
-| [nama] | [nim] | [role] |
-| [nama] | [nim] | [role] |
+| Muhammad Fathurrohman | 24552011328 | Software Engineer Lead |
+| Muhammad Dzaky Elfan Syah | 24552011327 | Backend Developer |
+| Novely Fazira Saelani | 24552011335 | Frontend Developer |
 
 ---
 
